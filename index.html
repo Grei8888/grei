@@ -231,6 +231,82 @@
       .perspective-quote { font-size: clamp(34px, 11.2vw, 40px); }
     }
       .work-status-note { margin: 40px 0 0; color: #91a195; font-size: 13px; letter-spacing: -.01em; line-height: 1.9; word-break: keep-all; }
+  
+    /* GREI HERO PORTRAIT v0.3 */
+    .hero {
+      min-height: clamp(720px, 68vw, 940px);
+      padding: 140px 0 118px;
+      overflow: hidden;
+      position: relative;
+      background: var(--bg);
+      isolation: isolate;
+    }
+    .hero::before { display: none; }
+    .hero-inner { width: var(--wide); z-index: 2; position: relative; pointer-events: none; }
+    .hero-copy { width: 60%; min-width: 0; pointer-events: auto; }
+    .hero-title {
+      font-size: clamp(73px, 7.65vw, 121px);
+      line-height: 1.13;
+      letter-spacing: -.028em;
+      margin: 47px 0 34px;
+    }
+    .hero-title .line { gap: .18em; }
+    .hero-lower { display: flex; flex-direction: column; align-items: flex-start; gap: 35px; }
+    .hero-description { font-size: clamp(17px, 1.55vw, 22px); letter-spacing: -.013em; }
+    .hero-portrait {
+      position: absolute;
+      z-index: 1;
+      top: 0;
+      right: 0;
+      bottom: 0;
+      width: 56%;
+      overflow: hidden;
+      pointer-events: none;
+    }
+    .hero-portrait img {
+      display: block;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: 50% 34%;
+      filter: grayscale(100%);
+    }
+    .hero-portrait::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      pointer-events: none;
+      background: linear-gradient(90deg, var(--bg) 0%, rgba(9,11,10,.72) 15%, transparent 40%),
+                  linear-gradient(0deg, var(--bg) 0%, transparent 25%, transparent 85%, rgba(9,11,10,.1) 100%);
+    }
+    .hero-bottom { z-index: 3; }
+    @media (min-width: 701px) and (max-width: 1150px) {
+      .hero { min-height: 750px; }
+      .hero-copy { width: 64%; }
+      .hero-title { font-size: clamp(62px, 7.3vw, 85px); }
+      .hero-portrait { width: 53%; }
+    }
+    @media (max-width: 700px) {
+      .hero { display: block; min-height: 0; padding: 118px 0 42px; }
+      .hero-inner { width: var(--wide); }
+      .hero-copy { width: 100%; }
+      .hero-title { font-size: clamp(43px, 11.7vw, 78px); line-height: 1.16; letter-spacing: -.019em; margin: 40px 0 31px; }
+      .hero-title .line { gap: .19em; }
+      .hero-lower { gap: 33px; }
+      .hero-description { font-size: 16px; line-height: 1.85; }
+      .hero-portrait { position: relative; width: 100%; height: clamp(320px, 96vw, 520px); margin-top: 19px; }
+      .hero-portrait img { width: 100%; height: 100%; object-fit: cover; object-position: 50% 28%; }
+      .hero-portrait::after {
+        background: linear-gradient(0deg, var(--bg) 0%, rgba(9,11,10,.3) 22%, transparent 55%),
+                    linear-gradient(90deg, var(--bg) 0%, transparent 17%, transparent 83%, var(--bg) 100%);
+      }
+      .hero-bottom { position: relative; left: auto; right: auto; bottom: auto; margin-top: -11px; z-index: 3; }
+    }
+    @media (max-width: 360px) {
+      .hero-title { font-size: clamp(39px, 12.3vw, 44px); }
+      .hero-portrait { height: 320px; }
+    }
+
   </style>
 </head>
 <body>
@@ -246,14 +322,20 @@
     <nav class="mobile-nav" id="mobile-nav" aria-label="모바일 메뉴"><a href="#work">Work</a><a href="#perspective">Perspective</a><a href="#about">About</a><a href="#contact">Connect</a></nav>
   </header>
   <main id="main">
+
     <section class="hero" id="top" aria-labelledby="hero-heading">
       <div class="container hero-inner">
-        <div class="eyebrow"><span class="dot"></span> GREI / THINKING INTO PRACTICE</div>
-        <h1 class="hero-title" id="hero-heading"><span class="line"><span>Think</span> <span>Deep.</span></span><span class="line accent"><span>Act</span> <span>Simple.</span></span></h1>
-        <div class="hero-lower">
-          <p class="hero-description"><strong>복잡한 문제를 깊이 이해하고,</strong><br>작동하는 해법을 단순하게 설계합니다.</p>
-          <a href="#work" class="text-link">Explore selected work <span class="arrow" aria-hidden="true">↗</span></a>
+        <div class="hero-copy">
+          <div class="eyebrow"><span class="dot"></span> GREI / THINKING INTO PRACTICE</div>
+          <h1 class="hero-title" id="hero-heading"><span class="line"><span>Think</span> <span>Deep.</span></span><span class="line accent"><span>Act</span> <span>Simple.</span></span></h1>
+          <div class="hero-lower">
+            <p class="hero-description"><strong>복잡한 문제를 깊이 이해하고,</strong><br>작동하는 해법을 단순하게 설계합니다.</p>
+            <a href="#work" class="text-link">Explore selected work <span class="arrow" aria-hidden="true">↗</span></a>
+          </div>
         </div>
+      </div>
+      <div class="hero-portrait">
+        <img src="assets/grei-portrait-bw.svg" width="420" height="560" alt="GREI 흑백 프로필 사진" fetchpriority="high" decoding="async">
       </div>
       <div class="container hero-bottom" aria-hidden="true"><span class="hero-scroll">SCROLL TO EXPLORE</span><span>POLICY / COGNITION / TECHNOLOGY</span></div>
     </section>
