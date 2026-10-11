@@ -308,7 +308,7 @@
     }
 
   
-    /* GREI HERO PHOTO: seamless editorial blend v0.5 */
+    /* GREI HERO PHOTO: close editorial composition v0.6 */
     .hero { background: var(--bg); }
     .hero-portrait { isolation: isolate; }
     .hero-portrait img {
@@ -325,10 +325,11 @@
     }
     @media (min-width: 1151px) {
       .hero { min-height: 730px; }
+      /* Editorial composition: the portrait shoulder visually approaches the headline. */
       .hero-portrait {
-        width: min(39vw, 520px);
+        width: min(42vw, 560px);
         top: 91px;
-        right: max(5%, calc((100vw - 1440px)/2));
+        right: max(18%, calc((100vw - 1440px)/2 + 200px));
         bottom: 0;
       }
       .hero-copy { width: 65%; }
@@ -336,7 +337,7 @@
       .hero-portrait img { object-position: 50% 28%; }
     }
     @media (min-width: 701px) and (max-width: 1150px) {
-      .hero-portrait { width: 42%; top: 115px; right: 3%; bottom: 0; }
+      .hero-portrait { width: 46%; top: 115px; right: 8%; bottom: 0; }
       .hero-portrait img { object-position: 50% 25%; }
       .hero-copy { width: 64%; }
       .hero-title { font-size: clamp(57px, 7.4vw, 80px); }
